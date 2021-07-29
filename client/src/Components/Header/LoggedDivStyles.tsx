@@ -3,8 +3,13 @@ import styled from 'styled-components';
 export const LogDiv = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items:center;
   padding: 0 1%;
   height: 100%;
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    width:30%;
+    margin-right:0;
+  }
 `;
 
 export const UserName = styled.span`

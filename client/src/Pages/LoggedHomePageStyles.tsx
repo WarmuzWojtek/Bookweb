@@ -14,6 +14,9 @@ export const ContentWrapper = styled.div`
   box-sizing:border-box;
   min-height:100vh;
   background: ${(props) => props.theme.backgrounds.mainGradient};
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    flex-wrap:wrap;
+  }
 `
 export const MyBooksWrapper = styled.div`
   margin:0;
@@ -21,7 +24,11 @@ export const MyBooksWrapper = styled.div`
   box-sizing:border-box;
   min-height:90vh;
   border-right: 2px solid black;
-  width:60vw;
+  width:80%;
+   @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    width:100%;
+    border-right:none;
+  }
 `
 export const MyBooksBigLabel = styled(BigLabel)`
   margin:0 0 5vh 0;
@@ -31,6 +38,9 @@ export const MyBooksBigLabel = styled(BigLabel)`
 `
 export const AsideWrapper = styled.div`
   width:40%;
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    width:100%;
+  }
 `
 export const AsideBigLabel = styled(BigLabel)`
   margin:0;

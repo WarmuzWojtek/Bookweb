@@ -9,38 +9,43 @@ export const BoxComponent = styled.div`
   font-size: 16px;
   background-color: ${(props) => props.theme.backgrounds.lightTransparent};
   border-radius: 10px;
-  height: 100%;
+  width: 90%;
+  min-height: 20vh;
   display: flex;
   justify-content: space-between;
-  margin: 2%;
   @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
-    width: 100%;
-    font-size: 12px;
-    flex-direction: column;
+    flex-direction:column;
+    width:90%;
+    padding: 2% 4%;
   }
+ 
 `;
 
 export const ImgContainer = styled.div`
   box-sizing: border-box;
-  flex-basis: 50%;
-  height: auto;
-  media only screen and (max-width: ${(props) => props.theme.size.sm}) {
-    font-size: 12px;
-    display: flex;
-    flex-direction: column;
+  flex-basis: 20%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    width:80%;
+    margin:2vh auto;
   }
 `;
 
 export const BookImage = styled.img`
-  width: 50%;
+  width: 100%;
+  height: 100%;
 `;
 
 export const ContentContainer = styled.div`
   box-sizing: border-box;
   padding: 1%;
-  flex-basis: 100%;
+  flex-basis: 75%;
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    flex-basis: 65%;
+  }
 `;
 export const BookParagraph = styled.p`
   margin: 5px 0 0 0;
@@ -55,16 +60,13 @@ export const BookTitleParagraph = styled.p`
   font-weight: bold;
   font-size: 18px;
   @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
-    font-size: 14px;
-  } ;
+    font-size: 16px;
+  }
 `;
 export const BoxBookReview = styled.p`
   margin: 5px 0 0 0;
   text-align: justify;
   font-size: 13px;
-  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
-    font-size: 12px;
-  } ;
 `;
 export const BoxReadMore = styled.a`
   display: inline-block;
@@ -73,8 +75,5 @@ export const BoxReadMore = styled.a`
   font-size: 14px;
   max-width: 90%;
   cursor: pointer;
-  margin-left: 20px;
-  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
-    font-size: 11px;
-  } ;
+  margin-left:20px;
 `;

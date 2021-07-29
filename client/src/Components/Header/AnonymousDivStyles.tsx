@@ -6,26 +6,23 @@ import { ButtonComponent } from '../Button/ButtonStyles';
 export const LogDiv = styled.div`
   display: flex;
   justify-content: flex-end;
-  height: 100%;
+  height: auto;
   align-items: center;
   @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
-    flex-direction: column;
-    align-items: center;
+   width:100%;
+   border-top:2px solid grey;
+   box-shadow:0 0 3px 0 grey;
+   padding-top:2vh;
   }
 `;
 
 export const LogInput = styled(InputComponent)`
   width: 30%;
   height: 20%;
+  display: inline-block;
   @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
-    margin-bottom: 0;
-    margin-top: 0;
-    width: 70%;
-    margin-left: 30%;
-    margin-right: 0;
-    border-right: 0;
-    padding: 3%;
-    padding-right: 0;
+    width:80%;
+    margin:1vh 0;
   }
 `;
 export const LogButton = styled(ButtonComponent)`
@@ -35,7 +32,7 @@ export const LogButton = styled(ButtonComponent)`
   @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
     width: 60%;
     height: 100%;
-    margin-left: 30%;
+    margin:2vh 0;
   }
 `;
 

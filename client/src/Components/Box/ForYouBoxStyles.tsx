@@ -13,6 +13,11 @@ export const BoxComponent = styled.div`
   min-height: 15vh;
   display: flex;
   justify-content: space-between;
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    flex-direction:column;
+    width:80%;
+    padding: 2% 4%;
+  }
 `;
 
 export const ImgContainer = styled.div`
@@ -20,6 +25,10 @@ export const ImgContainer = styled.div`
   flex-basis: 25%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    width:80%;
+    margin:2vh auto;
+  }
 `;
 
 export const BookImage = styled.img`

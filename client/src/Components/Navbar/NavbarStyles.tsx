@@ -9,6 +9,9 @@ export const NavbarComponent = styled.nav`
   justify-content: center;
   align-items: center;
   font-size: 18px;
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+   height:3vh;
+  }
 `;
 
 export const NavContainer = styled.div`
@@ -27,9 +30,10 @@ export const Burger = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 50%);
+    transform: translate(-70%, 50%);
     font-size: 1.8rem;
     cursor: pointer;
+    z-index:6;
   }
 `;
 

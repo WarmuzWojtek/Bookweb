@@ -11,6 +11,7 @@ import { RankingBox } from '../Components/Box/RankingBox';
 import { RootState } from '../app/store';
 import { setInputValue } from '../slicers/inputSlice';
 
+
 export const BooksCatalogPage = () => {
   const [topBooks, setTopBooks] = useState<BookDetailsType[]>([]);
   const inputValue = useSelector((state: RootState) => state.searchInput.value);
@@ -35,17 +36,16 @@ export const BooksCatalogPage = () => {
 
       for (let book of result?.data) {
         const { data: authors } = await Axios.get(`/api/books/${book.id}/authors`);
-        const { data: rating } = await Axios.get(`/api/books/average/${book.id}`);
         book.author = authors.map((author) => `${author.name} ${author.surname}`).join(', ');
-        book.rating = rating[0]?.rating;
       }
+
       setTopBooks(result?.data);
     };
 
     fetch();
   }, [inputValue]);
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => { };
 
   return (
     <MyBooksPageWrapper>
@@ -64,7 +64,7 @@ export const BooksCatalogPage = () => {
               title={book.title}
               author={book.author}
               review=""
-              rating={Math.round(book.rating)}
+              rating={String(parseFloat(parseFloat(book.rating).toFixed(2)))}
               cover={book.cover}
             />
           ))}

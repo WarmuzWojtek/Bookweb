@@ -6,6 +6,7 @@ import { RankingBigLabelTittle, RankingWrapper } from './RankingPageStyles';
 import { BookDetails as BookDetailsType } from '../Components/TopBooks/TopBooksComponent';
 import { Axios } from '../helpers/axios';
 import { RankingBox } from '../Components/Box/RankingBox';
+import { SearchingBarComponent } from '../Components/SearchingBar/SearchingBarStyles'
 
 export const RankingPage = () => {
   const [topBooks, setTopBooks] = useState<BookDetailsType[]>([]);
@@ -28,12 +29,13 @@ export const RankingPage = () => {
     fetch();
   }, []);
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => { };
 
   return (
     <MyBooksPageWrapper>
       <Header isLogged={true} />
       <Navbar />
+      <SearchingBarComponent />
       <ContentWrapper>
         <MyBooksBigLabel>
           <RankingBigLabelTittle>Ranking najlepszych książek</RankingBigLabelTittle>
@@ -46,7 +48,7 @@ export const RankingPage = () => {
               title={book.title}
               author={book.author}
               review=""
-              rating={Math.round(book.rating)}
+              rating={String(parseFloat(parseFloat(book.rating).toFixed(2)))}
               cover={book.cover}
             />
           ))}
@@ -56,3 +58,4 @@ export const RankingPage = () => {
     </MyBooksPageWrapper>
   );
 };
+

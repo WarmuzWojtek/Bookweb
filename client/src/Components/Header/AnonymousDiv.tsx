@@ -40,7 +40,7 @@ export const AnonymousDiv = () => {
 
   return (
     <LogDiv>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} style={{ textAlign: "center", width: "100%" }}>
         <LogInput
           type={'email'}
           name={'email'}

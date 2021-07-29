@@ -20,7 +20,10 @@ export const MyBooksWrapper = styled(ShelfComponent)`
   width:70vw;
   min-height:90vh;
   margin:0 auto;
-
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    width:90%; 
+    padding:1%;
+  }
 `
 export const MyBooksBigLabel = styled.div`
   display:flex;
@@ -36,6 +39,10 @@ export const MyBooksBigLabel = styled.div`
   background: ${(props) => props.theme.backgrounds.lightTransparent};
   box-shadow: ${(props) => props.theme.shadows.inset};
   text-align: center;
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    font-size:13px;
+    padding-left:5px;
+  }
 `
 export const MyBooksBigLabelTittle = styled.h2`
 margin:0;
@@ -52,6 +59,10 @@ margin: 10px 10px 10px 30px;
 padding: 0;
 width: 25%;
 border-radius:10px;
+@media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+ width:40%;
+ margin 10px 20px 10px 0;
+}
 `
 
 export const Footer = styled.div`

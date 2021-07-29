@@ -5,7 +5,9 @@ import { ShelfImage, ShelfTitle } from '../Components/Shelf/ShelfStyles';
 import { Shelf } from '../Components/Shelf/BigShelf';
 import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
-import { BoxComponentProps } from '../Components/Box/Box'
+import { BoxComponentProps } from '../Components/Box/Box';
+import { SearchingBarComponent } from '../Components/SearchingBar/SearchingBarStyles';
+import { RankingBigLabelTittle } from './RankingPageStyles';
 
 import {
   MyBooksPageWrapper,
@@ -13,7 +15,6 @@ import {
   ContentWrapper,
   MyBooksBigLabel,
   MyBooksShelfImage,
-  MyBooksBigLabelTittle,
   Footer,
 } from './MyBooksPageStyles';
 
@@ -42,9 +43,10 @@ export const MyBooksPage = () => {
     <MyBooksPageWrapper>
       <Header isLogged={true} />
       <Navbar />
+      <SearchingBarComponent />
       <ContentWrapper>
         <MyBooksBigLabel>
-          <MyBooksBigLabelTittle>Moje książki</MyBooksBigLabelTittle>
+          <RankingBigLabelTittle>Moje książki</RankingBigLabelTittle>
           <MyBooksShelfImage src={process.env.PUBLIC_URL + '/shelf.png'} />
         </MyBooksBigLabel>
         <MyBooksWrapper>

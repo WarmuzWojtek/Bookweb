@@ -22,8 +22,11 @@ export const RegisterHomePage = () => {
   useEffect(() => {
     const fetch = async () => {
       const { data } = await Axios.get('/api/books/top');
+      // const { data } = await Axios.get('http://localhost:3000/api/books/top');
 
       for (let book of data) {
+        // const { data: authors } = await Axios.get(`http://localhost:3000/api/books/${book.id}/authors`);
+        // const { data: reviews } = await Axios.get(`http://localhost:3000/api/books/${book.id}/reviews`);
         const { data: authors } = await Axios.get(`/api/books/${book.id}/authors`);
         const { data: reviews } = await Axios.get(`/api/books/${book.id}/reviews`);
 

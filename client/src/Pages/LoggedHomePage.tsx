@@ -7,6 +7,7 @@ import { ForYouBox } from '../Components/Box/ForYouBox';
 import { useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 import { Axios } from '../helpers/axios';
+import { SearchingBarComponent } from '../Components/SearchingBar/SearchingBarStyles'
 import { BookDetails as BookDetailsType } from '../Components/TopBooks/TopBooksComponent';
 import {
   LoggedHomePageWrapper,
@@ -25,7 +26,7 @@ export const LoggedHomePage = () => {
   const urlInProgress = `/api/book-groups/${email}/do%20przeczytania/bookShelves`;
   const urlWantToRead = `/api/book-groups/${email}/chcę%20przeczytać/bookShelves`;
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => { };
 
   const [topBooks, setTopBooks] = useState<BookDetailsType[]>([]);
 
@@ -47,19 +48,24 @@ export const LoggedHomePage = () => {
     fetch();
   }, []);
 
+
+  const AsideShelf = (window.innerWidth > 800) ? <ShelfImage src={process.env.PUBLIC_URL + '/shelf.png'} /> : null
+
+
   return (
     <LoggedHomePageWrapper>
       <Header isLogged={true} />
       <Navbar />
+      <SearchingBarComponent />
       <ContentWrapper>
         <MyBooksWrapper>
           <MyBooksBigLabel title="Moje książki" />
-          <Shelf title="Chcę przeczytać" apiUrl={urlWantToRead} />
+          <Shelf title="Chcę przeczytać" apiUrl='/api/book-groups/annawanna@gmail.com/przeczytane/bookShelves' />
           <Shelf title="Właśnie czytam" apiUrl={urlInProgress} />
           <Shelf title="Przeczytane" apiUrl={urlComplete} />
         </MyBooksWrapper>
         <AsideWrapper>
-          <ShelfImage src={process.env.PUBLIC_URL + '/shelf.png'} />
+          {AsideShelf}
           <AsideBigLabel title="Polecane dla Ciebie" />
           <ForYouContainer>
             {topBooks.map((book) => (
@@ -68,7 +74,7 @@ export const LoggedHomePage = () => {
                 title={book.title}
                 author={book.author}
                 review=""
-                rating={Math.round(book.rating)}
+                rating={String(parseFloat(parseFloat(book.rating).toFixed(2)))}
                 cover={book.cover}
               />
             ))}

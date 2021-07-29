@@ -8,6 +8,9 @@ export const ShelfComponent = styled.div`
   height:auto;
   padding: 10px;
   margin:0 auto;
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+  
+  }
 `;
 
 export const ShelfTitle = styled.h3`
@@ -19,6 +22,12 @@ export const ShelfTitle = styled.h3`
   padding: 30px 0 0 20px;
   font-size: 24px;
   text-align: left;
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    font-size:18px;
+    padding:0;
+    margin:0;
+    width:60%;
+  }
 `;
 
 export const ShelfImage = styled.img`
@@ -27,5 +36,7 @@ export const ShelfImage = styled.img`
   padding: 0;
   width: 30%;
   border-radius:10px;
-  
+  @media only screen and (max-width: ${(props) => props.theme.size.sm}) {
+    margin:0;
+  }
 `;

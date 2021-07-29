@@ -7,7 +7,7 @@ export type BookDetails = {
   id: number;
   title: string;
   author: string;
-  rating: number;
+  rating: string;
   review: string;
   cover: string;
 };
@@ -23,7 +23,7 @@ export const TopBooksBox: FC<TopBooksProps> = ({ topBooks }) => {
       title={e.title}
       author={e.author}
       description={e.review}
-      score={Math.round(e.rating)}
+      score={parseFloat(parseFloat(e.rating).toFixed(2))}
       cover={e.cover}
       key={e.id}
     ></Box>
